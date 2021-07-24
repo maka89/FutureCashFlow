@@ -10,6 +10,8 @@ In base folder, run:
 ```
 
 
-#
+# Example Diagram
 
-![alt text](examples/contract_yes_no.png "Logo Title Text 1")
+Example scenario. See examples/contract_yes_no.py for code
+
+![alt text](examples/contract_yes_no.png "Example scenario")
