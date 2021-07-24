@@ -1,5 +1,6 @@
 # FutureCashFlow
-Discount Future Cash Flows / Dividends by explicitly modelling risk. Instead of using simplistic models and model risk with hard-to-calculate discounting rates.
+Discount Cash Flows / Dividends by modelling complex scenarios that explicitly includes risk/uncertainty.
+Instead of using simplistic models and model risk with hard-to-calculate discounting rates.
 
 
 #
