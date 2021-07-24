@@ -1,7 +1,17 @@
 # FutureCashFlow
-Discount Future Cash Flows / Dividends by explicitly modelling risk. Instead of using simplistic models with  hard-to-calculate discounting rates.
+Discount Cash Flows / Dividends by modelling complex scenarios that explicitly includes risk/uncertainty.
+Instead of using simplistic models and model risk with hard-to-calculate discounting rates.
+
+## Install
+In base folder, run: 
+```
+  python setup.py build
+  python setup.py install
+```
 
 
-#
+## Example
 
-![alt text](examples/contract_yes_no.png "Logo Title Text 1")
+Example scenario. See examples/contract_yes_no.py for code
+
+![alt text](examples/contract_yes_no.png "Example scenario")
