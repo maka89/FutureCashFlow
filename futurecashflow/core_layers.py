@@ -1,14 +1,17 @@
 import numpy as np
 
 class CoreLayer:
-    def __init__(self,additive:bool=False):
+    def __init__(self,additive:bool=False,relative:bool=False):
         self.additive=additive
 
     def forward(self,x):
         self.out=self.fwd(x)
 
         if self.additive:
-            return [self.out+x]
+            if self.relative:
+                return [x*(1+self.out)]
+            else:
+                return [x+self.out]
         else:
             return [self.out]
 
