@@ -3,7 +3,7 @@ import numpy as np
 class CoreLayer:
     def __init__(self,additive:bool=False,relative:bool=False):
         self.additive=additive
-
+        self.relative=relative
     def forward(self,x):
         self.out=self.fwd(x)
 
@@ -20,8 +20,8 @@ class CoreLayer:
 
 
 class NormalLayer(CoreLayer):
-    def __init__(self,mu:float=0.0,std:float=1.0,additive:bool=False):
-        super().__init__(additive)
+    def __init__(self,mu:float=0.0,std:float=1.0,additive:bool=False,relative:bool=False):
+        super().__init__(additive,relative)
         self.mu=mu
         self.std=std
     
@@ -30,8 +30,8 @@ class NormalLayer(CoreLayer):
 
     
 class LogNormalLayer(CoreLayer):
-    def __init__(self,mu:float=0.0,std:float=1.0,additive:bool=False):
-        super().__init__(additive)
+    def __init__(self,mu:float=0.0,std:float=1.0,additive:bool=False,relative:bool=False):
+        super().__init__(additive,relative)
         self.mu = mu
         self.std=std
     def fwd(self,x):
@@ -39,15 +39,15 @@ class LogNormalLayer(CoreLayer):
     
 
 class ExponentialLayer(CoreLayer):
-    def __init__(self,scale:float=1.0,additive:bool=False):
-        super().__init__(additive)
+    def __init__(self,scale:float=1.0,additive:bool=False,relative:bool=False):
+        super().__init__(additive,relative)
         self.scale=scale
     def forward(self,x):
         return np.random.exponential(self.scale)
 
 class UniformLayer(CoreLayer):
-    def __init__(self,minval:float=0.0,maxval:float=1.0,additive:bool=False):
-        super().__init__(additive)
+    def __init__(self,minval:float=0.0,maxval:float=1.0,additive:bool=False,relative:bool=False):
+        super().__init__(additive,relative)
         self.minval=minval
         self.maxval=maxval
 
@@ -55,8 +55,8 @@ class UniformLayer(CoreLayer):
         return np.random.rand()*(self.maxval-self.minval) + self.minval
 
 class ChoiceLayer(CoreLayer):
-    def __init__(self,values:list = [0,1], p:list=None,additive:bool=False):
-        super().__init__(additive)
+    def __init__(self,values:list = [0,1], p:list=None,additive:bool=False,relative:bool=False):
+        super().__init__(additive,relative)
         self.values = values
         if p is not None:
             if len(p) == len(values):
